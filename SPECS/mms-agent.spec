@@ -3,15 +3,15 @@
 
 Name:		mms-agent
 Group:		System Environment/Daemons
-Version:	1.5.9
-Release:	1%{?dist}
+Version:	1.6.0
+Release:	2%{?dist}
 Summary:	10gen MongoDB Monitoring Agent
 License:	Proprietary
 Source:		https://mms.mongodb.com/settings/mms-monitoring-agent.tar.gz
 Source1:	mms-agent.service
 NoSource:	0
 Requires(pre):	systemd
-Requires:	python-pymongo
+Requires:	python-pymongo >= 1.9
 
 %description
 %{summary}
@@ -51,6 +51,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %pre
 getent group mmsagent >/dev/null || groupadd -r mmsagent
+getent passwd mmsagent >/dev/null || useradd -g mmsagent -r -c "MongoDB Monitoring Agent" -m -d %{_prefix} mmsagent
 
 %preun
 if [ $1 = 0 ] ; then
@@ -66,4 +67,10 @@ fi
 %post
 systemctl enable mms-agent.service
 systemctl start mms-agent.service
+
+%changelog
+* Mon Oct 07 2013 Scott Rossillo <scott@rossillo.net>
+- Upgraded agent to 1.6.0
+- Added useradd for mmsagent
+
 
