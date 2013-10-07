@@ -1,0 +1,14 @@
+[Unit]
+Description=MongoDB Backup Agent
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=simple
+ExecStart=/var/lib/mmsagent/backup-agent/backup-agent
+WorkingDirectory=/var/lib/mmsagent/backup-agent
+Restart=always
+User=mmsagent
+
+[Install]
+WantedBy=multi-user.target
+
