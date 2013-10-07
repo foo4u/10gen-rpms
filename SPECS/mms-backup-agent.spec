@@ -9,6 +9,7 @@ Summary:	10gen MongoDB Backup Agent
 License:	Proprietary
 Source:		mms-backup-agent-linux_amd64.tar.gz
 Source1:	mms-backup-agent.service
+NoSource:	0
 Requires(pre):	systemd
 Requires:	mms-agent
 

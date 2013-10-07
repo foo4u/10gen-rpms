@@ -2,12 +2,14 @@
 
 
 Name:		mms-agent
+Group:		System Environment/Daemons
 Version:	1.5.9
 Release:	1%{?dist}
 Summary:	10gen MongoDB Monitoring Agent
 License:	Proprietary
 Source:		https://mms.mongodb.com/settings/mms-monitoring-agent.tar.gz
 Source1:	mms-agent.service
+NoSource:	0
 Requires(pre):	systemd
 Requires:	python-pymongo
 
