@@ -1,0 +1,13 @@
+[Unit]
+Description=MongoDB Monitoring Agent
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /var/lib/mmsagent/mms-agent/agent.py
+Restart=always
+User=mmsagent
+
+[Install]
+WantedBy=multi-user.target
+
