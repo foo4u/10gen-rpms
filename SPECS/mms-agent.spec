@@ -54,16 +54,16 @@ getent group mmsagent >/dev/null || groupadd -r mmsagent
 
 %preun
 if [ $1 = 0 ] ; then
-	systemctl stop  mmsagent.service
-	systemctl disable mmsagent.service
+	systemctl stop  mms-agent.service
+	systemctl disable mms-agent.service
 fi
 
 %postun
 if [ "$1" -ge "1" ] ; then
-	systemctl reload-or-restart mmsagent.service
+	systemctl reload-or-restart mms-agent.service
 fi
 
 %post
-systemctl enable mmsagent.service
-systemctl start mmsagent.service
+systemctl enable mms-agent.service
+systemctl start mms-agent.service
 
