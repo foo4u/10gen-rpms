@@ -7,7 +7,7 @@ Release:	1%{?dist}
 Summary:	10gen MongoDB Monitoring Agent
 License:	Proprietary
 Source:		https://mms.mongodb.com/settings/mms-monitoring-agent.tar.gz
-Source1:	mmsagent.service
+Source1:	mms-agent.service
 Requires(pre):	systemd
 Requires:	python-pymongo
 
@@ -25,7 +25,7 @@ Requires:	python-pymongo
 cp -p $RPM_BUILD_DIR/mms-agent/*py "%{buildroot}%{_prefix}/mms-agent"
 cp -p $RPM_BUILD_DIR/mms-agent/README "%{buildroot}%{_prefix}/mms-agent"
 %__install -d %{buildroot}/usr/lib/systemd/system/
-%__install -D -m0644 %{SOURCE1} %{buildroot}/usr/lib/systemd/system/mmsagent.service
+%__install -D -m0644 %{SOURCE1} %{buildroot}/usr/lib/systemd/system/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -45,7 +45,7 @@ rm -rf $RPM_BUILD_ROOT
 /var/lib/mmsagent/mms-agent/pythonversiontest.py
 %config   /var/lib/mmsagent/mms-agent/logConfig.py
 %config  /var/lib/mmsagent/mms-agent/settings.py
-%attr(0644,root,root) /usr/lib/systemd/system/mmsagent.service
+%attr(0644,root,root) /usr/lib/systemd/system/mms-agent.service
 
 %pre
 getent group mmsagent >/dev/null || groupadd -r mmsagent
