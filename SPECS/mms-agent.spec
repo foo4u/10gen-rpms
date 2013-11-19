@@ -3,7 +3,7 @@
 
 Name:		mms-agent
 Group:		System Environment/Daemons
-Version:	1.6.0
+Version:	1.6.4
 Release:	2%{?dist}
 Summary:	10gen MongoDB Monitoring Agent
 License:	Proprietary
@@ -69,6 +69,9 @@ systemctl enable mms-agent.service
 systemctl start mms-agent.service
 
 %changelog
+* Tue Nov 19 2013 Scott Rossillo <scott@rossillo.net>
+- Upgraded agent to 1.6.4
+
 * Mon Oct 07 2013 Scott Rossillo <scott@rossillo.net>
 - Upgraded agent to 1.6.0
 - Added useradd for mmsagent
