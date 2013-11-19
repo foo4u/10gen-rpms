@@ -3,7 +3,7 @@
 
 Name:		mms-backup-agent
 Group:		System Environment/Daemons
-Version:	20130923.0
+Version:	20131118.0
 Release:	1%{?dist}
 Summary:	10gen MongoDB Backup Agent
 License:	Proprietary
@@ -54,6 +54,9 @@ systemctl enable mms-backup-agent.service
 systemctl start mms-backup-agent.service
 
 %changelog
+* Tue Nov 19 2013 Scott Rossillo <scott@rossillo.net>
+- Upgraded agent to v20131118.0
+
 * Sun Oct 07 2013 Scott Rossillo <scott@rossillo.net>
 - Initial release
 
